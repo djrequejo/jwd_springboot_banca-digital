@@ -9,6 +9,8 @@ import com.mitocode.javaweb.banca_digital.cliente.domain.Cliente;
 import com.mitocode.javaweb.banca_digital.cliente.domain.ClienteNotFoundException;
 import com.mitocode.javaweb.banca_digital.cliente.domain.ClienteRepository;
 
+import lombok.NonNull;
+
 @Service
 public class ClienteFinderService {
 
@@ -25,6 +27,10 @@ public class ClienteFinderService {
 	public Optional<Cliente> consultarPorDocumento(String documento) throws ClienteNotFoundException {
 		return Optional.ofNullable(
 				clienteRepository.getByDocumento(documento).orElseThrow(ClienteNotFoundException::new));
+	}
+
+	public Optional<Cliente> consultarPorId(Integer id) {
+		return clienteRepository.getById(id);
 	}
 
 }

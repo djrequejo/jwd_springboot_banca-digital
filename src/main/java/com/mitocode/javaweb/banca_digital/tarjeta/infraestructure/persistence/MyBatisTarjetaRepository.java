@@ -9,11 +9,11 @@ import com.mitocode.javaweb.banca_digital.tarjeta.domain.Tarjeta;
 import com.mitocode.javaweb.banca_digital.tarjeta.domain.TarjetaRepository;
 
 @Repository
-public class TarjetaRepositoryImpl implements TarjetaRepository {
+public class MyBatisTarjetaRepository implements TarjetaRepository {
 	
 	private MyBatisTarjetaMapper tarjetaMapper;
 	
-	public TarjetaRepositoryImpl(MyBatisTarjetaMapper tarjetaMapper) {
+	public MyBatisTarjetaRepository(MyBatisTarjetaMapper tarjetaMapper) {
 		this.tarjetaMapper = tarjetaMapper;
 	}
 

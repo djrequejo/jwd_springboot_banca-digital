@@ -9,11 +9,11 @@ import com.mitocode.javaweb.banca_digital.cliente.domain.Cliente;
 import com.mitocode.javaweb.banca_digital.cliente.domain.ClienteRepository;
 
 @Repository
-public class ClienteRepositoryImpl implements ClienteRepository {
+public class MyBatisClienteRepository implements ClienteRepository {
 
 	private MyBatisClienteMapper clienteMapper;
 	
-	public ClienteRepositoryImpl(MyBatisClienteMapper clienteMapper) {
+	public MyBatisClienteRepository(MyBatisClienteMapper clienteMapper) {
 		this.clienteMapper = clienteMapper;
 	}
 
@@ -49,5 +49,4 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 		int row = clienteMapper.update(cliente);
 		return row == 0 ? Optional.empty() : Optional.of(cliente);
 	}
-
 }

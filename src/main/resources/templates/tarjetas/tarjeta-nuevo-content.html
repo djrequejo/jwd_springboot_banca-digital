@@ -1,0 +1,53 @@
+
+<!--Main layout-->
+<main class="pt-5 mx-lg-5" style="height: 80vh">
+	<div class="container-fluid mt-5">
+		<div class="h5">Nueva Tarjeta</div>
+
+		<div class="row">
+			<div class="card">
+				<div class="card-body">
+					<div th:if="${message}" class="alert alert-danger mt-4">
+						<p th:text="${message}" th:remove="tag" />
+					</div>
+					
+					<form class="needs-validation" novalidate
+						th:action="@{/tarjetas/registrar}"
+						th:object="${tarjetaNueva}"
+						th:method="post"
+						>
+						<div class="form-row">
+							<div class="col-md-4 mb-3">
+								<label for="validationCustom01">Numero Tarjeta</label> 
+								<input name="numeroTarjeta"
+									type="text" class="form-control" id="validationCustom01"
+									placeholder="XXXX-XXXX-XXXX-XXXX" required>
+								<div class="invalid-feedback">Ingresa una tarjeta</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="validationCustom02">Fecha Vencimiento</label> 
+								<input name="fechaVencimiento"
+									type="text" class="form-control" id="validationCustom02"
+									placeholder="dd/MM/yyyy" required>
+								<div class="invalid-feedback">Selecciona una fecha</div>
+							</div>
+							<div class="col-md-4 mb-3">
+								<label for="validationCustomUsername">Estado</label> 
+								<select name="estado" 
+									class="form-control custom-select browser-default" required>
+									<option value="">Seleccionar</option>
+									<option
+										th:each="estado : ${T(com.mitocode.javaweb.banca_digital.tarjeta.domain.TarjetaEstadoEnum).values()}"
+										th:value="${estado}" th:text="${estado.label}"></option>
+								</select>
+								<div class="invalid-feedback">Selecciona un estado.</div>
+							</div>
+						</div>
+						<button class="btn btn-primary btn-sm" type="submit">Registrar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<!--Main layout-->
