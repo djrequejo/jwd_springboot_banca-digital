@@ -1,7 +1,9 @@
 package com.mitocode.javaweb.banca_digital.usuario.infraestructure.persistence;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -22,4 +24,8 @@ public interface MyBatisUsuarioMapper {
 	
 	@Select("SELECT * FROM usuario WHERE id_cliente = #{id} and clave = #{clave}")
 	public Usuario findByIdAndClave(Integer id, String clave);
+	
+	@Insert("INSERT INTO usuario(id_cliente, clave) VALUES( #{idCliente}, #{clave} )")
+	@Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+	public int insert(Usuario usuario);
 }

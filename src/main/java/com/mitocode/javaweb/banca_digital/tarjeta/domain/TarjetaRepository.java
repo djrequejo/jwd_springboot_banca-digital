@@ -12,4 +12,6 @@ public interface TarjetaRepository {
 	public Tarjeta save(Tarjeta tarjeta);
 
 	public boolean delete(Integer id);
+	
+	public Optional<Tarjeta> updateAll(Tarjeta tarjeta);
 }

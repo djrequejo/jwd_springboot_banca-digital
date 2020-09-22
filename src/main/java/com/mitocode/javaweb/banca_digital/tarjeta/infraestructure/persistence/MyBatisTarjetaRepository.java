@@ -29,12 +29,20 @@ public class MyBatisTarjetaRepository implements TarjetaRepository {
 
 	@Override
 	public Tarjeta save(Tarjeta tarjeta) {
-		return null;
+		int row = tarjetaMapper.insert(tarjeta);
+		return row == 0 ? null : tarjeta;
 	}
 
 	@Override
 	public boolean delete(Integer id) {
-		return false;
+		int row = tarjetaMapper.delete(id);
+		return row == 0 ? false : true;
+	}
+
+	@Override
+	public Optional<Tarjeta> updateAll(Tarjeta tarjeta) {
+		int row = tarjetaMapper.update(tarjeta);
+		return row == 1 ? Optional.of(tarjeta) : Optional.empty();
 	}
 
 }

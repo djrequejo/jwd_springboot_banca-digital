@@ -1,3 +1,5 @@
+
+/*
 (function() {
 'use strict';
 window.addEventListener('load', function() {
@@ -15,3 +17,4 @@ form.classList.add('was-validated');
 });
 }, false);
 })();
+*/

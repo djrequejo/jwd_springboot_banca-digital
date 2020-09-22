@@ -2,14 +2,14 @@
 <!--Main layout-->
 <main class="pt-5 mx-lg-5" style="min-height: 80vh; height: auto;">
 	<div class="container-fluid mt-5">
-		<div class="h5">Nueva Tarjeta</div>
+		<div class="h5">Editar Tarjeta</div>
 
 			<div class="card">
 				<div class="card-body">
 					
 					<form class="needs-validation" novalidate
-						th:action="@{/tarjetas/registrar}"
-						th:object="${tarjetaNueva}"
+						th:action="@{/tarjetas/editar/{id}(id=${tarjetaEditar.id})}"
+						th:object="${tarjetaEditar}"
 						th:method="post"
 						>
 						
@@ -24,15 +24,15 @@
 						<div class="form-row">
 							<div class="col-md-4 mb-3">
 								<label for="validationCustom01">Numero Tarjeta</label> 
-								<input th:field="${tarjetaNueva.numeroTarjeta}"
+								<input th:field="*{numeroTarjeta}"
 									th:classappend="${ #fields.hasErrors('numeroTarjeta') } ? is-invalid"
 									type="text" class="form-control" id="validationCustom01"
-									placeholder="XXXX-XXXX-XXXX-XXXX" required>
+									placeholder="XXXX-XXXX-XXXX-XXXX" readonly="readonly">
 								<div class="invalid-feedback">Ingresa una tarjeta</div>
 							</div>
 							<div class="col-md-4 mb-3">
 								<label for="validationCustom02">Fecha Vencimiento</label> 
-								<input th:field="${tarjetaNueva.fechaVencimiento}"
+								<input th:field="*{fechaVencimiento}"
 									th:classappend="${ #fields.hasErrors('fechaVencimiento') } ? is-invalid"
 									type="text" class="form-control" id="validationCustom02"
 									placeholder="dd/MM/yyyy" required>
@@ -40,7 +40,7 @@
 							</div>
 							<div class="col-md-4 mb-3">
 								<label for="validationCustomUsername">Estado</label> 
-								<select th:field="${tarjetaNueva.estado}"
+								<select th:field="*{estado}"
 									th:classappend="${ #fields.hasErrors('estado') } ? is-invalid"
 									class="form-control custom-select browser-default" required>
 									<option value="">Seleccionar</option>
@@ -51,7 +51,7 @@
 								<div class="invalid-feedback">Selecciona un estado.</div>
 							</div>
 						</div>
-						<button class="btn btn-primary btn-sm" type="submit">Registrar</button>
+						<button class="btn btn-primary btn-sm" type="submit">Actualizar</button>
 						<a class="btn btn-outline-danger btn-sm" th:href="@{/resumen}">Cancelar</a>
 					</form>
 				</div>

@@ -20,5 +20,9 @@ public class TarjetaFinderService {
 	public Optional<List<Tarjeta>> listarTarjetas(Integer idCliente) {
 		return tarjetaRepository.findByIdCliente(idCliente);
 	}
+
+	public Optional<Tarjeta> obtenerTarjeta(Integer idTarjeta) {
+		return tarjetaRepository.findById(idTarjeta);
+	}
 	
 }

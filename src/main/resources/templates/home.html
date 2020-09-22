@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 <th:block th:insert="fragments/header-fragment" />
@@ -26,7 +28,16 @@
 		<main class="pt-5 mx-lg-5" style="height: 80vh">
 			<div class="container-fluid mt-5">
 				<div class="h5">Bienvenid@  
-					<span th:remove="tag" th:text="${clienteLogin.nombres}" th:if="${clienteLogin}" />
+					<th:block th:if="${session.clienteLogin}" th:text="${session.clienteLogin.nombres}" />
+					<th:block th:if="${session.clienteLogin == null}">An&oacute;nimo</th:block>
+					
+					<div sec:authorize="isAuthenticated()">Logueado</div>
+					
+					<div sec:authorize="hasRole('ROLE_ADMIN')">Rol Banca ADMIN</div>
+					<div sec:authorize="hasRole('ROLE_USER')">Rol Banca USER</div>
+					
+					<div sec:authorize="hasAuthority('ADMIN')">Authority Banca ADMIN</div>
+					<div sec:authorize="hasAuthority('USER')">Authority Banca USER</div>
 				</div>
 			</div>
 		</main>

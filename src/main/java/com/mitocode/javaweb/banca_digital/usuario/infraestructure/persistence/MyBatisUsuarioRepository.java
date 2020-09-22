@@ -31,4 +31,10 @@ public class MyBatisUsuarioRepository implements UsuarioRepository {
 		return Optional.ofNullable(usuarioMapper.findByIdAndClave(id, clave));
 	}
 
+	@Override
+	public Optional<Usuario> save(Usuario usuario) {
+		int row = usuarioMapper.insert(usuario);
+		return row == 0 ? Optional.empty() : Optional.of(usuario);
+	}
+
 }

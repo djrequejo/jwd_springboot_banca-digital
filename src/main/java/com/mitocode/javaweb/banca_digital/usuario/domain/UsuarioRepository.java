@@ -4,6 +4,8 @@ import java.util.Optional;
 
 public interface UsuarioRepository {
 
+	public Optional<Usuario> save(Usuario usuario);
+	
 	public Optional<Usuario> getById(Integer id);
 	
 	public Optional<Usuario> getByIdCliente(Integer idCliente);

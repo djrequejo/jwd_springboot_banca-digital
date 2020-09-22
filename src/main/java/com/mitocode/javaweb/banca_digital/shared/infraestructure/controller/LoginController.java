@@ -36,6 +36,11 @@ public class LoginController {
 	public String hello() {
 		return "hello";
 	}
+	
+	@GetMapping("/home")
+	public String home() {
+		return "home";
+	}
 
 	@GetMapping(value = { "/login", "", "/" })
 	public String login() {
@@ -66,6 +71,13 @@ public class LoginController {
 		}
 		
 		return resultPage;
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute(SessionKeys.CLIENTE_LOGIN.getValue());
+		
+		return "login";
 	}
 }
 

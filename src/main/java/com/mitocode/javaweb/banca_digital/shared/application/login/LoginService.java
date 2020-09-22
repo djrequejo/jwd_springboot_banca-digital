@@ -22,6 +22,22 @@ public class LoginService {
 		this.usuarioRepository = usuarioRepository;
 		this.clienteRepository = clienteRepository;
 	}
+	
+	public Usuario validarUsuario(String usuario) throws UserNotFoundException {
+		Usuario usuarioLogin = null;
+
+		Optional<Cliente> oCliente = clienteRepository.getByDocumento(usuario);
+
+		if (oCliente.isPresent()) {
+			usuarioLogin = usuarioRepository.getByIdCliente(oCliente.get().getId()).get();
+			usuarioLogin.setCliente(oCliente.get());
+		} else {
+			throw new UserNotFoundException();
+		}
+
+		return usuarioLogin;
+	}
+
 
 	public Usuario validarUsuarioClave(String usuario, String clave)
 			throws UserNotFoundException, BadCredentialsEception {
