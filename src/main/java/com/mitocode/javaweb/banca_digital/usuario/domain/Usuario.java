@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mitocode.javaweb.banca_digital.cliente.domain.Cliente;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 @Data
+@NoArgsConstructor
 @RequiredArgsConstructor
 @ToString
 public class Usuario {
