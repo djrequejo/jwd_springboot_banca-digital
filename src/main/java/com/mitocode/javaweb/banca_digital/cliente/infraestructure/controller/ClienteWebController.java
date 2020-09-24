@@ -11,7 +11,7 @@ import com.mitocode.javaweb.banca_digital.cliente.domain.Cliente;
 
 @Controller
 @RequestMapping("/clientes")
-public class ClienteController {
+public class ClienteWebController {
 
 	@Autowired
 	private ClienteFinderService clienteFinderService;

@@ -2,6 +2,7 @@ package com.mitocode.javaweb.banca_digital.usuario.application.create;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.mitocode.javaweb.banca_digital.usuario.domain.Usuario;
@@ -12,7 +13,9 @@ public class UsuarioCreateService {
 
 	private UsuarioRepository usuarioRepository;
 
-	public UsuarioCreateService(UsuarioRepository usuarioRepository) {
+	public UsuarioCreateService(
+			@Qualifier("myBatisUsuarioRepository")
+			UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
 	}
 	

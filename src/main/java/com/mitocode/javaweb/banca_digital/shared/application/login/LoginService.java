@@ -2,6 +2,7 @@ package com.mitocode.javaweb.banca_digital.shared.application.login;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.mitocode.javaweb.banca_digital.cliente.domain.Cliente;
@@ -18,7 +19,10 @@ public class LoginService {
 
 	private ClienteRepository clienteRepository;
 
-	public LoginService(UsuarioRepository usuarioRepository, ClienteRepository clienteRepository) {
+	public LoginService(
+			@Qualifier("myBatisUsuarioRepository")
+			UsuarioRepository usuarioRepository, 
+			ClienteRepository clienteRepository) {
 		this.usuarioRepository = usuarioRepository;
 		this.clienteRepository = clienteRepository;
 	}

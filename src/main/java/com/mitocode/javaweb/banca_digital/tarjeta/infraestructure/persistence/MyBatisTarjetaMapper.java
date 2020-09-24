@@ -18,6 +18,13 @@ import com.mitocode.javaweb.banca_digital.tarjeta.domain.Tarjeta;
 
 @Mapper
 public interface MyBatisTarjetaMapper {
+	
+	@Select("SELECT * FROM tarjeta ")
+	@Results({ @Result(property = "numeroTarjeta", column = "numero_tarjeta"),
+			@Result(property = "fechaVencimiento", column = "fecha_vencimiento"),
+			@Result(property = "idCliente", column = "id_cliente"),
+			@Result(property = "cliente", column = "id_cliente", javaType = Cliente.class, one = @One(select = "com.mitocode.javaweb.banca_digital.cliente.infraestructure.persistence.MyBatisClienteMapper.findById")) })
+	public List<Tarjeta> findAll();
 
 	@Select("SELECT * FROM tarjeta WHERE id_cliente = #{idCliente}")
 	@Results({ @Result(property = "numeroTarjeta", column = "numero_tarjeta"),

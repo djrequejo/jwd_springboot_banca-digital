@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.jackson2.SimpleGrantedAuthorityMixin;
 import org.springframework.stereotype.Service;
 
 import com.mitocode.javaweb.banca_digital.shared.application.login.LoginService;

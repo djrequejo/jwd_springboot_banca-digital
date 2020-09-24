@@ -1,5 +1,6 @@
 package com.mitocode.javaweb.banca_digital.usuario.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mitocode.javaweb.banca_digital.cliente.domain.Cliente;
 
 import lombok.Data;
@@ -20,12 +21,12 @@ public class Usuario {
 
 	@NonNull
 //	@ToString.Exclude
+	@JsonIgnore
 	private String clave;
 
 	private Cliente cliente;
 
 	public Usuario(@NonNull Integer idCliente, @NonNull String clave) {
-		super();
 		this.idCliente = idCliente;
 		this.clave = clave;
 	}

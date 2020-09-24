@@ -5,6 +5,8 @@ import java.util.Optional;
 
 public interface TarjetaRepository {
 
+	public Optional<List<Tarjeta>> findAll();
+	
 	public Optional<List<Tarjeta>> findByIdCliente(Integer idCliente);
 
 	public Optional<Tarjeta> findById(Integer id);

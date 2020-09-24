@@ -37,47 +37,47 @@ public class LoginController {
 		return "hello";
 	}
 	
-	@GetMapping("/home")
-	public String home() {
-		return "home";
-	}
+//	@GetMapping("/home")
+//	public String home() {
+//		return "home";
+//	}
 
-	@GetMapping(value = { "/login", "", "/" })
-	public String login() {
-		return "login";
-	}
+//	@GetMapping(value = { "/login", "", "/" })
+//	public String login() {
+//		return "login";
+//	}
 	
-	@PostMapping("/login")
-	public String validarClave(@RequestParam String documento, @RequestParam String password, 
-			ModelMap modelMap, HttpSession session) {
-		log.info("documento:" + documento);
-		log.info("password:" + password);
-		
-		Usuario usuario;
-		String resultPage = "";
-		try {
-			usuario = loginService.validarUsuarioClave(documento, password);
-			
-			log.debug(usuario.toString());
-			
-			session.setAttribute(SessionKeys.CLIENTE_LOGIN.getValue(), usuario.getCliente());
-			
-			resultPage = "home";
-		} catch (UserNotFoundException | BadCredentialsEception e) {
-			log.debug(e.toString());
-			
-			modelMap.addAttribute("message", "Usuario no existe o clave incorrecta");
-			resultPage = "login";
-		}
-		
-		return resultPage;
-	}
+//	@PostMapping("/login")
+//	public String validarClave(@RequestParam String documento, @RequestParam String password, 
+//			ModelMap modelMap, HttpSession session) {
+//		log.info("documento:" + documento);
+//		log.info("password:" + password);
+//		
+//		Usuario usuario;
+//		String resultPage = "";
+//		try {
+//			usuario = loginService.validarUsuarioClave(documento, password);
+//			
+//			log.debug(usuario.toString());
+//			
+//			session.setAttribute(SessionKeys.CLIENTE_LOGIN.getValue(), usuario.getCliente());
+//			
+//			resultPage = "home";
+//		} catch (UserNotFoundException | BadCredentialsEception e) {
+//			log.debug(e.toString());
+//			
+//			modelMap.addAttribute("message", "Usuario no existe o clave incorrecta");
+//			resultPage = "login";
+//		}
+//		
+//		return resultPage;
+//	}
 	
-	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		session.removeAttribute(SessionKeys.CLIENTE_LOGIN.getValue());
-		
-		return "login";
-	}
+//	@GetMapping("/logout")
+//	public String logout(HttpSession session) {
+//		session.removeAttribute(SessionKeys.CLIENTE_LOGIN.getValue());
+//		
+//		return "login";
+//	}
 }
 

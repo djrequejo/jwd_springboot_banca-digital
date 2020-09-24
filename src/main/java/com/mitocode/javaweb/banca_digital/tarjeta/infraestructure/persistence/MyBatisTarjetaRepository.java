@@ -45,4 +45,9 @@ public class MyBatisTarjetaRepository implements TarjetaRepository {
 		return row == 1 ? Optional.of(tarjeta) : Optional.empty();
 	}
 
+	@Override
+	public Optional<List<Tarjeta>> findAll() {
+		return Optional.ofNullable(tarjetaMapper.findAll());
+	}
+
 }

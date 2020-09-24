@@ -18,12 +18,12 @@ import com.mitocode.javaweb.banca_digital.cliente.domain.Cliente;
 
 @SpringBootTest
 @ContextConfiguration
-public class ClienteControllerTest {
+public class ClienteWebControllerTest {
 	
-	private static final Logger log = LoggerFactory.getLogger(ClienteControllerTest.class);
+	private static final Logger log = LoggerFactory.getLogger(ClienteWebControllerTest.class);
 
 	@Autowired
-	private ClienteController clienteController;
+	private ClienteWebController clienteController;
 
 	@Test
 	@Disabled
